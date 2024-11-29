@@ -13,8 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   app?.appendChild(button);
 
   const updateJoke = async () => {
-    const fetchJoke = await fetchJoke();
-    joke.textContent = fetchJoke; 
+    const fetchingJoke = await fetchJoke();
+    joke.textContent = fetchingJoke;
+    console.log(fetchingJoke);
   }
+
   button.addEventListener('click', updateJoke);
-})
+  updateJoke();
+});
