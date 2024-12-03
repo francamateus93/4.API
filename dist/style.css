@@ -6,13 +6,13 @@ body {
 }
 
 header {
-  /* border: 1px solid black; */
   text-align: start;
   padding: 1rem;
 }
 
 header p {
   font-size: 1rem;
+  font-weight: bold;
   color: #4b4b4b;
 }
 

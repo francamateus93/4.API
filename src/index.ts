@@ -1,6 +1,7 @@
-import { fetchJoke } from './api';
+import { fetchJoke, fetchWeather } from './api';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  const weatherParagraph = document.getElementById('weather-text') as HTMLParagraphElement;
   const jokeText = document.getElementById('joke-text') as HTMLParagraphElement;
   const jokeButton = document.getElementById('joke-next') as HTMLButtonElement;
   const scoreButtons = document.querySelectorAll('.score-btn') as NodeListOf<HTMLButtonElement>;
@@ -11,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Manejar la pontuación y el chiste
   let currentScore: number | null = null;
   let currentJoke = "";
+
+// Actualizacion del Tiempo
+  const CODPROV = "08" // codigo de la provincia de Barcelona
+  const weather = await fetchWeather(CODPROV);
+  weatherParagraph.textContent = `El Clima hoy: ${weather}`;
 
 // Actualización del Chiste
   const updateJoke = async () => {
@@ -40,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const score = parseInt(button.getAttribute('data-score') || '0')
       currentScore = score;
-      // console.log(`Pontuación: ${score}`);
+      // console.log(score);
     })
   })
 
