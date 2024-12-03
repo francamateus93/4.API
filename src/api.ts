@@ -1,3 +1,4 @@
+// Joke API (icanhazdadjoke)
 export const fetchJoke = async (): Promise<string> => {
   try {
     const response = await fetch('https://icanhazdadjoke.com/', {
@@ -11,6 +12,19 @@ export const fetchJoke = async (): Promise<string> => {
   }
 };
 
+// Joke API (jokeapi.dev)
+export const fetchFromJokeAPI = async (): Promise<string> => {
+  try {
+    const response = await fetch('https://v2.jokeapi.dev/joke/Any?type=single');
+    const data = await response.json();
+    return data.joke;
+  } catch (error) {
+    console.error('Error al obtener el chiste:', error)
+    return 'Error al obtener el chiste';
+  }
+}
+
+// Weather API (open-meteo)
 export const fetchWeather = async (): Promise<string> => {
   const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=41.38&longitude=2.15&current_weather=true`;
 

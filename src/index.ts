@@ -1,17 +1,10 @@
-import { fetchJoke, fetchWeather } from './api';
+import { fetchJoke, fetchWeather, fetchFromJokeAPI } from './api';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const weatherParagraph = document.getElementById('weather-text') as HTMLParagraphElement;
   const jokeText = document.getElementById('joke-text') as HTMLParagraphElement;
   const jokeButton = document.getElementById('joke-next') as HTMLButtonElement;
   const scoreButtons = document.querySelectorAll('.score-btn') as NodeListOf<HTMLButtonElement>;
-
-// Almacenar los reports de los chistes
-  let reportAcudits: {joke: string, score: number | null, date: string}[] = [];
-
-// Manejar la pontuación y el chiste
-  let currentScore: number | null = null;
-  let currentJoke = "";
 
 // Actualizacion del Tiempo
   try {
@@ -22,9 +15,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     weatherParagraph.textContent = 'Error al cargar la información meteorológica.';
   }
 
+// Almacenar los reports de los chistes
+  let reportAcudits: {joke: string, score: number | null, date: string}[] = [];
+
+// Manejar la pontuación y el chiste
+  let currentScore: number | null = null;
+  let currentJoke = "";
+
+// Obtener chistes de forma alternada
+const getRandomJoke = async (): Promise<string> => {
+  const random = Math.random(); // Genera un numero entre 0 y 1
+  if (random < 0.5) {
+    return await fetchJoke();
+  } else {
+    return await fetchFromJokeAPI();
+  }
+  };
+
 // Actualización del Chiste
   const updateJoke = async () => {
-    const joke = await fetchJoke();
+    const joke = await getRandomJoke();
     currentScore = null;
     currentJoke = joke;
     jokeText.textContent = joke;
@@ -53,6 +63,5 @@ document.addEventListener('DOMContentLoaded', async () => {
       // console.log(score);
     })
   })
-
   updateJoke();
 });
