@@ -14,13 +14,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   let currentJoke = "";
 
 // Actualizacion del Tiempo
-  const idProvince = "08" // codigo de la provincia de Barcelona
   try {
-    const weatherInfo = await fetchWeather(idProvince);
-    weatherParagraph.textContent = `El Clima: ${weatherInfo}`;
-  } catch(error) {
+    const weatherInfo = await fetchWeather();
+    weatherParagraph.textContent = `${weatherInfo}`;
+  } catch (error) {
     console.error('Error al mostrar el clima:', error);
-    weatherParagraph.textContent = 'Error al cargar';
+    weatherParagraph.textContent = 'Error al cargar la información meteorológica.';
   }
 
 // Actualización del Chiste
