@@ -29,17 +29,18 @@ main {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1) ;
   border-radius: 20px;
   max-width: 500px;
-  margin: auto 0;
+  margin: auto 1.4rem;
 }
 
 .joke-container h1 {
   font-size: 2.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  color: #013c50;
 }
 
 .joke-container p {
-  font-size: 1.5rem;
-  color:#4b4b4b;
+  font-size: 1.2rem;
+  color: #013c50;
   margin-bottom: 2rem;
 }
 
@@ -55,5 +56,56 @@ main {
 }
 
 .joke-container button:hover {
-  background-color: #015c7b;
+  background-color: #013c50;
+}
+
+/* Media Queries*/
+
+/* Pantalla pequeña */
+@media (max-width: 480px) {
+  header p {
+    font-size: 0.8rem;
+  }
+  .joke-container {
+    padding: 1.2rem;
+    margin
+  }
+
+  .joke-container h1 {
+    font-size: 1.4rem;
+  }
+  
+  .joke-container p {
+    font-size: 0.6rem;
+  }
+
+  .joke-container button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Pantalla normal */
+@media (max-width: 768px) {
+  header p {
+    font-size: 0.8rem;
+  }
+  .joke-container {
+    padding: 1.4rem;
+  }
+
+  .joke-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .joke-container p {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .joke-container button {
+    font-size: 1rem;
+    padding: 0.6rem 1.6rem;
+  }
 }
