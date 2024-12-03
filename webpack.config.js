@@ -19,6 +19,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    contentBase: "./dist",
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    port: 8080,
   },
 };
