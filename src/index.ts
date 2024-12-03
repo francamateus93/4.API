@@ -19,5 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   button.addEventListener('click', updateJoke);
+  
   updateJoke();
 });
