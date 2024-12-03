@@ -26,7 +26,7 @@ main {
 .joke-container {
   background-color: #fff;
   padding: 4rem;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1) ;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   max-width: 500px;
   margin: auto 1.4rem;
@@ -44,9 +44,9 @@ main {
   margin-bottom: 2rem;
 }
 
-.joke-container button {
+#joke-next {
   font-size: 1.2rem;
-  background-color: #039dd0;
+  background-color: #013c50;
   padding: 1rem 2.2rem;
   border: none;
   border-radius: 10px;
@@ -55,20 +55,45 @@ main {
   cursor: pointer;
 }
 
-.joke-container button:hover {
-  background-color: #013c50;
+#joke-next:hover {
+  background-color: #039dd0;
 }
 
-/* Media Queries*/
+.score-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.score-btn {
+  background-color: transparent;
+  box-shadow: 0 0 10px rgba(14, 0, 73, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1.4rem;
+}
+
+.score-btn:hover {
+  box-shadow: 0 0 15px rgba(14, 0, 73, 0.3);
+}
+
+.score-btn:active {
+  box-shadow: 0 0 15px rgba(14, 0, 73, 0.5);
+}
+
+/*-------------- Media Queries ------------*/
 
 /* Pantalla pequeña */
 @media (max-width: 480px) {
   header p {
     font-size: 0.8rem;
   }
+
   .joke-container {
     padding: 1.2rem;
-    margin
   }
 
   .joke-container h1 {
@@ -88,24 +113,25 @@ main {
 /* Pantalla normal */
 @media (max-width: 768px) {
   header p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .joke-container {
     padding: 1.4rem;
   }
 
   .joke-container h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
   
   .joke-container p {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
   }
 
   .joke-container button {
     font-size: 1rem;
-    padding: 0.6rem 1.6rem;
+    padding: 0.8rem 1.6rem;
   }
 }
+
