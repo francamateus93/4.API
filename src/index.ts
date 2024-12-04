@@ -1,10 +1,10 @@
 import { fetchJoke, fetchWeather, fetchFromJokeAPI } from './api';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const weatherParagraph = document.getElementById('weather-text') as HTMLParagraphElement;
   const jokeText = document.getElementById('joke-text') as HTMLParagraphElement;
   const jokeButton = document.getElementById('joke-next') as HTMLButtonElement;
   const scoreButtons = document.querySelectorAll('.score-btn') as NodeListOf<HTMLButtonElement>;
+  const weatherParagraph = document.getElementById('weather-text') as HTMLParagraphElement;
 
 // Actualizacion del Tiempo
   try {
@@ -22,17 +22,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   let currentScore: number | null = null;
   let currentJoke = "";
 
-// Obtener chistes de forma alternada
-const getRandomJoke = async (): Promise<string> => {
-  const random = Math.random(); // Genera un numero entre 0 y 1
-  if (random < 0.5) {
-    return await fetchJoke();
-  } else {
-    return await fetchFromJokeAPI();
-  }
-  };
-
-// Actualización del Chiste
+  
+  // Actualización del Chiste
   const updateJoke = async () => {
     const joke = await getRandomJoke();
     currentScore = null;
@@ -41,8 +32,8 @@ const getRandomJoke = async (): Promise<string> => {
     console.clear();
     console.log(reportAcudits);
   }
-
-// Manejar el evento de click en el button 'Nuevo Chiste'
+  
+  // Manejar el evento de click en el button 'Nuevo Chiste'
   jokeButton.addEventListener('click', () => {
     if (currentJoke) {
       const reportJokes = {
@@ -55,7 +46,7 @@ const getRandomJoke = async (): Promise<string> => {
     updateJoke();
   });
 
-// Manejar la pontuación
+  // Manejar la pontuación
   scoreButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const score = parseInt(button.getAttribute('data-score') || '0')
@@ -63,5 +54,16 @@ const getRandomJoke = async (): Promise<string> => {
       // console.log(score);
     })
   })
+
+  // Obtener chistes de forma alternada
+  const getRandomJoke = async (): Promise<string> => {
+    const random = Math.random(); // Genera un numero entre 0 y 1
+    if (random < 0.5) {
+      return await fetchJoke();
+    } else {
+      return await fetchFromJokeAPI();
+    }
+    };
+    
   updateJoke();
 });

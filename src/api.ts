@@ -6,7 +6,7 @@ export const fetchJoke = async (): Promise<string> => {
     });
     const data = await response.json();
     return data.joke;
-  } catch (error) {
+} catch (error) {
     console.error('Error al obtener el chiste:', error)
     return 'Error al obtener el chiste';
   }
