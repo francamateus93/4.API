@@ -9,15 +9,20 @@
 </head>
 
 <body>
-  <header class="weather-container">
-    <p id="weather-text">Cargando...</p>
+  <header>
+    <div id="weather-icon">Cargando...</div>
+    <div id="weather-temperature"></div>
   </header>
 
   <main>
-    <div class="shape"></div>
+    <svg class="shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+      <path fill="#9447d3"
+        d="M 498 89 C 740 170 841 375 674 538 C 369 790 171 491 90 370 C 40 270 80 160 122 107 C 187 48 244 -8 346 28 Z">
+      </path>
+    </svg>
 
     <div class="joke-container">
-      <h1>Preparat per riure?</h1>
+      <h1 class="">Preparat per riure?</h1>
       <p id="joke-text"></p>
       <div class="score-buttons">
         <button class="score-btn" data-score="1">😓</button>

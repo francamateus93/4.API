@@ -25,15 +25,44 @@ export const fetchFromJokeAPI = async (): Promise<string> => {
 }
 
 // Weather API (open-meteo)
+type weatherCodes = {
+  [key: number]: string
+};
+
+const weatherIcons: weatherCodes = {
+  0: "☀️",
+  1: "🌤️",
+  2: "⛅",
+  3: "☁️", 
+  45: "🌫️",
+  48: "🌫️",
+  51: "🌦️",
+  61: "🌧️",
+  71: "❄️",
+  95: "⛈️",
+}
+
 export const fetchWeather = async (): Promise<string> => {
   const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=41.38&longitude=2.15&current_weather=true`;
 
   try {
     const response = await fetch(weatherUrl);
+    if (!response.ok) {
+      throw new Error("Error al obtener el clima.");
+    }
     const data = await response.json();
+
     const temperature = data.current_weather.temperature;
-    const windSpeed = data.current_weather.windspeed; 
-    return `⛅ Temperatura: ${temperature}ºC | 🌬️ Velocidad del Viento: ${windSpeed}km/h`;
+    const weatherCode = data.current_weather.weathercode;
+    const weatherIcon = weatherIcons[weatherCode] || "Error Icon";
+
+    const weatherElement = document.getElementById('weather-icon');
+    const weatherTemperature = document.getElementById('weather-temperature');
+
+    if(weatherElement && weatherTemperature) {
+      weatherElement.textContent = weatherIcon;
+      weatherTemperature.textContent = {`${temperature}ºC`;
+    }
   } catch (error) {
     console.error('Error al obtener el clima:', error)
     return 'Error al obtener el clima';
