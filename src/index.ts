@@ -4,16 +4,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const jokeText = document.getElementById('joke-text') as HTMLParagraphElement;
   const jokeButton = document.getElementById('joke-next') as HTMLButtonElement;
   const scoreButtons = document.querySelectorAll('.score-btn') as NodeListOf<HTMLButtonElement>;
-  const weatherParagraph = document.getElementById('weather-text') as HTMLParagraphElement;
-
-// Actualizacion del Tiempo
-  try {
-    const weatherInfo = await fetchWeather();
-    weatherParagraph.textContent = `${weatherInfo}`;
-  } catch (error) {
-    console.error('Error al mostrar el clima:', error);
-    weatherParagraph.textContent = 'Error al cargar la información meteorológica.';
-  }
 
 // Almacenar los reports de los chistes
   let reportAcudits: {joke: string, score: number | null, date: string}[] = [];
@@ -64,6 +54,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       return await fetchFromJokeAPI();
     }
     };
-    
+
   updateJoke();
 });

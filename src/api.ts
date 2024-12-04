@@ -52,17 +52,19 @@ export const fetchWeather = async (): Promise<string> => {
     }
     const data = await response.json();
 
-    const temperature = data.current_weather.temperature;
+    const temperature = Math.round(data.current_weather.temperature);
     const weatherCode = data.current_weather.weathercode;
     const weatherIcon = weatherIcons[weatherCode] || "Error Icon";
 
+  // Actualizacion del Tiempo
     const weatherElement = document.getElementById('weather-icon');
     const weatherTemperature = document.getElementById('weather-temperature');
 
     if(weatherElement && weatherTemperature) {
       weatherElement.textContent = weatherIcon;
-      weatherTemperature.textContent = {`${temperature}ºC`;
+      weatherTemperature.textContent = `${temperature}ºC`;
     }
+    return "Clima actualizado correctamente.";
   } catch (error) {
     console.error('Error al obtener el clima:', error)
     return 'Error al obtener el clima';
