@@ -56,7 +56,6 @@ export const fetchWeather = async (): Promise<string> => {
     const weatherCode = data.current_weather.weathercode;
     const weatherIcon = weatherIcons[weatherCode] || "Error Icon";
 
-  // Actualizacion del Tiempo
     const weatherElement = document.getElementById('weather-icon');
     const weatherTemperature = document.getElementById('weather-temperature');
 
@@ -64,7 +63,7 @@ export const fetchWeather = async (): Promise<string> => {
       weatherElement.textContent = weatherIcon;
       weatherTemperature.textContent = `${temperature}ºC`;
     }
-    return "Clima actualizado correctamente.";
+    return weatherIcon;
   } catch (error) {
     console.error('Error al obtener el clima:', error)
     return 'Error al obtener el clima';
