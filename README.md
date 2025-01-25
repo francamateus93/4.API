@@ -1,64 +1,65 @@
-# 4. Joke Weather API
+# Joke Weather API
 
-**📄 Descripción**
+Joke Weather App is an interactive web application that combines entertainment with functionality. It allows users to enjoy dynamically generated jokes while displaying the current weather status in the form of icons and temperature. This project integrates external APIs and offers a visually appealing and easy-to-use experience. Fully responsive design for devices of any size with use of TypeScript for maintainability.
 
-Joke Weather App es una aplicación web interactiva que combina el entretenimiento con la funcionalidad. Permite a los usuarios disfrutar de chistes generados dinámicamente mientras muestra el estado actual del clima en forma de íconos y temperatura. Este proyecto integra APIs externas y ofrece una experiencia visualmente atractiva y fácil de usar. Diseño completamente responsivo para dispositivos de cualquier tamaño con uso de TypeScript para mantenibilidad.
+## 💻 Technologies
 
-**💻 Tecnologías Utilizadas**
+- TypeScript: The main programming language of the project.
+- JavaScript: Help to develop the project.
+- HTML5 y CSS3: For the basic structure and styles.
+- API:
+  - `icanhazdadjoke`
+  - `JokeAPI `
+  - `Open-Meteo API`
 
-- Frontend: HTML5, CSS3, JavaScript, y TypeScript.
-- APIs:
-  - icanhazdadjoke API para obtener chistes.
-  - JokeAPI como fuente alternativa de chistes.
-  - Open-Meteo API para datos meteorológicos.
+## 📋 Environment Variables
 
-**📋 Requisitos**
+To run this project, you need to have installed:
 
-Antes de comenzar, asegúrate de tener instalados los siguientes elementos en tu entorno local:
+- `Node.js` (version 16 or higher): JavaScript runtime environment.
+- `npm o yarn`: Package managers for installing dependencies.
 
-- Node.js: Necesario para gestionar dependencias y ejecutar scripts.(versión 16 o superior)
-- npm (Node Package Manager): Viene incluido con Node.js.
-- Acceso a internet para consumir las APIs externas.
-- Navegador moderno compatible con ES6+.
+## ▶️ Run Locally
 
-**🛠️ Instalación**
+Clone the project
 
-- 1.Clonar el repositorio:
+```bash
+  git clone https://github.com/francamateus93/4.API
+```
 
-git clone https://github.com/francamateus93/4.API
+Go to the project directory
 
-- 2.Navega al directorio del proyecto:
+```bash
+  cd 4.API
+```
 
-cd 4.API
+Install dependencies
 
-- 3.Instala las dependencias del proyecto
+```bash
+  npm install
+```
 
-npm install
+Start the server
 
-- 4.Compilar TypeScript: Para compilar los archivos TypeScript a JavaScript, utiliza:
+```bash
+  npm run dev / npm run start
+```
 
-npm run build
+## 🛠️ Installation
 
-**▶️ Ejecución**
+Install the project with npm:
 
-Para iniciar el proyecto localmente:
+```bash
+  npm install 4.API
+  cd 4.API
+```
 
-- Asegúrate de que todos los archivos estén correctamente instalados y configurados.
+## 📘 Documentation
 
-- 1.Inicia el servidor de desarrollo:
+- [API documentation](https://www.postman.com/api-platform/api-documentation/)
+- [Why Does API Documentation Matter?](https://swagger.io/blog/api-documentation/what-is-api-documentation-and-why-it-matters/)
+- [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
-npm run dev
+## 🤝 Support
 
-- 2.Abre tu navegador y dirígete a la URL que se muestra en la terminal (por defecto: http://localhost:3000).
-
-- 3.Ejecuta servidor local para producción: Para servir el proyecto desde un servidor local:
-
-npm run preview
-
-**🤝 Contribuciones**
-
-¡Este proyecto está abierto a contribuciones!
-
-# Notes
-
-- Un proyecto estudiantil creado en IT Academy, en el curso de FrontEnd Angular/React en Barcelona Activa.
+A project created at IT Academy, in the FrontEnd Angular/React course at Barcelona Activa.
